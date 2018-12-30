@@ -51,7 +51,7 @@
     3.事件处理
         3.1 撕葱移动
         3.2 边界检测
-        3.3  吃食物
+        3.3  吃热狗
         3.4  刷新食物
      */
 
@@ -139,8 +139,8 @@
     siCong.prototype.move=function (  ) {
 
 
-    //蛇的身体每一个截止是上一节位置,倒着遍历蛇的身体,让每一节身体的位置是前一
-    //节的位置,蛇头前面没有身体,所有不需要遍历
+    //身体每一个截止是上一节位置,倒着遍历身体,让每一节身体的位置是前一
+    //节的位置,头部前面没有身体,所有不需要遍历
 
     for ( var i = laogong.wbody.length - 1 ; i > 0 ; i -- ) {
         laogong.wbody[ i ].x = laogong.wbody[ i - 1 ].x;
@@ -195,13 +195,13 @@
             laogong.wbody[ 0 ].y ++;
             break;
     }
-    //移除老蛇
+    //移除旧身体
     for ( var i = 0 ; i < laogong.laogongElements.length ; i ++ ) {
         laogong.laogongElements[ i ].parentNode.removeChild ( laogong.laogongElements[ i ] );
         laogong.laogongElements.shift ();
         i --
     }
-        laogong.render ( map );//显示新蛇
+        laogong.render ( map );//显示新身体
     //边界检测
     //x方向
     if (laogong.wbody[0].x < 0 || laogong.wbody[0].x > map.offsetWidth/laogong.width){
